@@ -1,0 +1,52 @@
+.stations {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  grid-gap: 1rem;
+}
+
+.station {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  grid-gap: 2rem;
+  flex-grow: 1;
+  align-items: center;
+  background: rgba($color-gray-light, 0.75);
+  box-shadow: $box-shadow;
+
+  &__id {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__num {
+    font-size: 2rem;
+    font-weight: bold;
+    border: 0.4rem solid $color-yellow;
+    border-radius: 50%;
+    padding: 1rem 2rem;
+  }
+
+  &__players {
+    position: relative;
+    font-size: 2rem;
+    padding-left: 2rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 120%;
+      width: 0.4rem;
+      border-radius: 1rem;
+      background-color: $color-yellow;
+    }
+  }
+
+  &__vs {
+    color: $color-yellow;
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,131 @@
+.sidebar {
+  background-image: linear-gradient(
+    rgba($color-gray-light, 0.75),
+    rgba($color-gray-light, 0.75)
+  );
+}
+
+.progress {
+  text-align: center;
+  position: relative;
+  padding-bottom: 2rem;
+  &::after {
+    content: "";
+    width: 100%;
+    height: 0.4rem;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    background-color: $color-yellow;
+    border-radius: 1rem;
+  }
+
+  &__fig {
+    width: 70%;
+    height: auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    z-index: 10;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__text {
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  &__svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50.05%;
+    left: 50.15%;
+    transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+    z-index: -1;
+  }
+
+  &__circle {
+    fill: none;
+    stroke: $color-yellow;
+    stroke-linecap: round;
+    stroke-width: 0.4rem;
+    stroke-dasharray: 285;
+    transition: all 500ms ease-out;
+  }
+}
+
+.controller {
+  display: grid;
+  grid-gap: 2rem;
+
+  &__title {
+    font-weight: normal;
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  &__next {
+    display: flex;
+    background-color: $color-gray-dark;
+    padding: 1rem;
+    justify-content: center;
+    grid-gap: 1rem;
+    font-size: 1.8rem;
+  }
+
+  &__vs {
+    color: $color-yellow;
+  }
+
+  &__controls {
+    display: grid;
+    grid-gap: 1rem;
+  }
+
+  &__station {
+    outline: none;
+    border-top: 0.1rem solid transparent;
+    border-bottom: 0.4rem solid $color-yellow;
+    color: $color-white;
+    padding: 1rem 1rem;
+    font-size: 1.6rem;
+    background: rgba($color-gray-dark, 0.9);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__green,
+  &__red {
+    font-size: 1.6rem;
+    color: $color-white;
+    padding: 1rem;
+    border: none;
+    box-shadow: $box-shadow;
+    transition: all 500ms;
+
+    &:hover {
+      box-shadow: $box-shadow-close;
+      transform: scale(0.98);
+    }
+  }
+
+  &__green {
+    background-color: $color-green;
+  }
+  &__red {
+    background-color: $color-red;
+  }
+}

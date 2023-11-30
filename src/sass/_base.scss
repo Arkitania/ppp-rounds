@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Noto Sans JP", sans-serif;
+  color: $color-white;
+  background-image: linear-gradient(
+      rgba($color-gray-dark, 0.5),
+      rgba($color-gray-dark, 0.5)
+    ),
+    url("../../public/img/bg.jpg");
+
+  background-size: 200%;
+  background-position: 60% 10%;
+  font-size: 1.6rem;
+}
+
+.btn {
+  font-size: 1.6rem;
+  color: $color-white;
+  padding: 1rem;
+  border: none;
+  box-shadow: $box-shadow;
+  transition: all 500ms;
+  background-color: $color-yellow;
+  cursor: pointer;
+
+  &__green {
+    background-color: $color-green;
+  }
+  &__red {
+    background-color: $color-red;
+  }
+
+  &:hover {
+    box-shadow: $box-shadow-close;
+    transform: scale(0.98);
+  }
+}

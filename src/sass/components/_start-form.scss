@@ -1,0 +1,48 @@
+.start-form {
+  padding: 2rem;
+  width: 80%;
+  max-width: 80rem;
+  background: rgba($color-gray-dark, 0.75);
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  box-shadow: $box-shadow;
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+
+  &__input {
+    outline: none;
+    border-top: 0.1rem solid transparent;
+    border-bottom: 0.4rem solid $color-yellow;
+    color: $color-white;
+    padding: 1rem 1rem;
+    font-size: 1.6rem;
+    background: rgba($color-gray-dark, 0.9);
+
+    box-shadow: $box-shadow;
+    transition: all 300ms;
+
+    &:focus {
+      outline: none;
+      box-shadow: $box-shadow-close;
+      transform: scale(0.99);
+    }
+  }
+
+  &__players {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from "react-redux";
+import { Fragment, useEffect } from "react";
+
+import "./css/style.css";
+import InitialForm from "./components/Initial/InitialForm";
+import Layout from "./components/Layout";
+import Sidebar from "./components/sidebar/Sidebar";
+import Stations from "./components/Stations/Stations";
+import Extras from "./components/extras/Extras";
 
 function App() {
+  const start = useSelector((state) => state.rounds.started);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      const message = "¿Seguro desea salir de la app?";
+      event.returnValue = message;
+      return message;
+    };
+
+    // Add the event listener when the App component mounts
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    // Remove the event listener when the App component unmounts
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      {start && (
+        <Layout>
+          <Sidebar />
+          <Stations stationsCount={5} />
+          <Extras />
+        </Layout>
+      )}
+      {!start && <InitialForm />}
+    </Fragment>
   );
 }
 

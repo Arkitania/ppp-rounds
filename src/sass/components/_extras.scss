@@ -1,0 +1,107 @@
+.extras {
+  display: grid;
+  grid-template-rows: 35% 65%;
+
+  grid-gap: 2rem;
+  padding: 4rem 2rem 4rem 0rem;
+}
+
+.sets,
+.players {
+  display: flex;
+  flex-flow: column;
+  grid-gap: 1rem;
+  background: rgba($color-gray-light, 0.75);
+  box-shadow: $box-shadow;
+  padding: 1rem;
+}
+
+.sets {
+  &__title {
+    font-weight: normal;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  &__container {
+    height: 100%;
+    max-height: 25vh;
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-flow: column;
+    grid-gap: 0.5rem;
+
+    box-shadow: $box-shadow;
+  }
+}
+
+.set {
+  background-color: $color-gray-dark;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+
+  &__cancel {
+    cursor: pointer;
+    background: none;
+    color: $color-red;
+    font-size: 1rem;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.players {
+  &__container {
+    overflow: scroll;
+    height: 100%;
+    // max-height: 50vh;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-flow: column;
+    grid-gap: 0.5rem;
+
+    box-shadow: $box-shadow;
+  }
+}
+
+.player {
+  background-color: $color-gray-dark;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+
+  &__state {
+    cursor: pointer;
+    background: none;
+    color: $color-green;
+    font-size: 1rem;
+    border: none;
+
+    &--red {
+      color: $color-red;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
