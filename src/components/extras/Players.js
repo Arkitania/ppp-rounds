@@ -13,7 +13,9 @@ function Players(props) {
   return (
     <div className="players">
       <div className="players__container">
-        <div className="players__items">{generatePlayers()}</div>
+        <div className="players__icontainer">
+          <div className="players__items">{generatePlayers()}</div>
+        </div>
       </div>
     </div>
   );

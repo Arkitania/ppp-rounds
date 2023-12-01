@@ -101,6 +101,8 @@ const roundsSlice = createSlice({
           const opponent = `${s.player1 === playerTag ? "player2" : "player1"}`;
           const updatedSet = { ...s };
 
+          if (s.state === "completed") return s;
+
           if (!player.available) updatedSet.state = "unavailble";
 
           if (player.available) {
@@ -184,10 +186,15 @@ const roundsSlice = createSlice({
       const setData = action.payload;
 
       const updatedSets = state.sets.map((set) => {
-        if (set.player1 !== setData.player1 && set.player2 !== setData.player2)
-          return set;
         const updatedSet = { ...set };
-        updatedSet.state = "pending";
+        if (
+          set.player1 === setData.player1 &&
+          set.player2 === setData.player2
+        ) {
+          updatedSet.state = "pending";
+          return updatedSet;
+        }
+
         return updatedSet;
       });
 

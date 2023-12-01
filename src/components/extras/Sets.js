@@ -14,7 +14,9 @@ function Sets() {
     <div className="sets">
       <h3 className="sets__title">Terminados</h3>
       <div className="sets__container">
-        <div className="sets__items">{generateSets()}</div>
+        <div className="sets__scontainer">
+          <div className="sets__items">{generateSets()}</div>
+        </div>
       </div>
     </div>
   );
