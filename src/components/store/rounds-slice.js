@@ -87,6 +87,18 @@ const roundsSlice = createSlice({
     toggleUserA: (state, action) => {
       const playerTag = action.payload;
       const player = state.players.find((pj) => pj.player === playerTag);
+
+      let userPlaying = false;
+
+      state.stations.forEach((st) => {
+        if (st.set || st.set === 0) {
+          const data = state.sets[st.set];
+          if (data.player1 === playerTag || data.player2 === playerTag)
+            userPlaying = true;
+        }
+      });
+
+      if (userPlaying) return;
       player.available = !player.available;
 
       const updatedPlayers = state.players.map((pj) => {

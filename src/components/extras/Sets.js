@@ -7,7 +7,9 @@ function Sets() {
   });
 
   const generateSets = () => {
-    return sets.map((set) => <Set p1={set.player1} p2={set.player2} />);
+    return sets.map((set, i) => (
+      <Set p1={set.player1} p2={set.player2} key={i} />
+    ));
   };
 
   return (
