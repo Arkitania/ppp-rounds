@@ -115,14 +115,31 @@ const roundsSlice = createSlice({
 
           if (s.state === "completed") return s;
 
-          if (!player.available) updatedSet.state = "unavailble";
+          if (!player.available) {
+            console.log("unavailable 111");
+            updatedSet.state = "unavailble";
+          } else {
+            updatedSet.state = "pending";
+          }
 
           if (player.available) {
             const opponentData = state.players.find(
               (pj) => pj.player === s[opponent]
             );
             if (opponentData.available) updatedSet.state = "pending";
-            if (!opponentData.available) updatedSet.state = "unavailable";
+            const opponentPlaying = state.sets.find((set) => {
+              return (
+                (set.player2 === opponentData.player &&
+                  set.state === "playing") ||
+                (set.player1 === opponentData.player && set.state === "playing")
+              );
+            });
+
+            if (!opponentData.available && !opponentPlaying) {
+              updatedSet.state = "unavailable";
+            } else {
+              updatedSet.state = "pending";
+            }
           }
 
           return updatedSet;
@@ -131,6 +148,11 @@ const roundsSlice = createSlice({
       });
 
       state.sets = updatedSets;
+
+      console.log(
+        "end of toggle user availavility",
+        JSON.parse(JSON.stringify(updatedSets))
+      );
     },
 
     assignStationSet: (state, action) => {
@@ -192,6 +214,7 @@ const roundsSlice = createSlice({
       state.stations = updatedStations;
       state.players = updatedPlayers;
       state.sets = updatedSets;
+      console.log(updatedSets);
     },
 
     cancelSet: (state, action) => {
