@@ -50,7 +50,7 @@ function InitialForm() {
   return (
     <div className="start-form__container">
       <form className="start-form" onSubmit={handleSubmit}>
-        <h3 className="start-form__title">PPP Round Robin</h3>
+        <h3 className="start-form__title">OJO² | RR Smart Manager</h3>
         <div className="start-form__main my-md">
           <input
             type="number"

@@ -9,7 +9,7 @@ function Progress() {
   return (
     <div className="progress">
       <figure className="progress__fig">
-        <img className="progress__img" src="/img/logoPPP.png" alt="Logo PPP" />
+        <img className="progress__img" src="/img/ssbLogo.png" alt="Logo PPP" />
         <svg className="progress__svg" viewBox="0 0 100 100">
           <circle
             className="progress__circle"

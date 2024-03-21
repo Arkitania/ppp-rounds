@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Fragment, useEffect } from "react";
 
-import "./css/style.css";
+import "./sass/main.scss";
 import InitialForm from "./components/Initial/InitialForm";
 import Layout from "./components/Layout";
 import Sidebar from "./components/sidebar/Sidebar";

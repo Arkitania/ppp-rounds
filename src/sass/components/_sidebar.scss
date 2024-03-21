@@ -3,6 +3,10 @@
     rgba($color-gray-light, 0.75),
     rgba($color-gray-light, 0.75)
   );
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content) 1fr;
 }
 
 .progress {
@@ -71,17 +75,17 @@
 
   &__title {
     font-weight: normal;
-    font-size: 3rem;
+    font-size: 1.6rem;
     text-align: center;
   }
 
   &__next {
     display: flex;
     background-color: $color-gray-dark;
-    padding: 1rem;
+    padding: 0.5rem;
     justify-content: center;
     grid-gap: 1rem;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 
   &__vs {
@@ -127,5 +131,19 @@
   }
   &__red {
     background-color: $color-red;
+  }
+}
+
+.powered {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: end;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  grid-gap: 1rem;
+
+  &__img {
+    width: 40%;
   }
 }
